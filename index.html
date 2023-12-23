@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="	https://cdn.jsdelivr.net/npm/mathjs@12.2.0/lib/browser/math.min.js"></script>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body style="background-color: black; height: 100vh; width: 100vw">
+    <canvas></canvas>
+    <div class="disclaimerBox">
+      <button class="disclaimerBtn" onclick="showDisclaimer()">
+        Limitations
+      </button>
+      <img
+        onclick="hideLimitation()"
+        src="./Assets/cross.png"
+        class="cross hidden"
+        alt=""
+      />
+      <div class="disclaimer hidden">
+        <div>
+          <div class="limitations">Limitations:</div>
+          <p>
+            This software is designed to approximate graphs of functions using
+            the Complex Fourier series and it comes with certain inherent
+            limitations. Users are advised to take note of the following:
+          </p>
+          <ol>
+            <li>
+              <strong>Possible Errors:</strong>
+              As this software <b>Approximates Curves</b>
+              so it might differ from the actual graph of the function.
+            </li>
+            <li>
+              <strong>Function Support:</strong> The current version of the
+              software does not support the plotting of functions involving
+              <b>tan(x)</b>, <b>cot(x)</b>, <b>sec(x)</b>, and <b>cosec(x)</b>.
+              While ongoing development aims to broaden these capabilities,
+              users should be aware of this limitation.
+            </li>
+
+            <li>
+              <strong>Graph Range:</strong> Graphs are generated within the
+              range of -π to +π only.
+            </li>
+
+            <li>
+              <strong>Development Stage:</strong> The software is actively being
+              developed, and updates will be released periodically to address
+              limitations and enhance features. Users are encouraged to stay
+              informed about updates to benefit from the latest improvements.
+            </li>
+          </ol>
+
+          <p>
+            By utilizing this software, users acknowledge and accept these
+            limitations. Valuable user feedback is welcomed to contribute to the
+            ongoing refinement and expansion of the software's capabilities.
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="blur"></div>
+    <div class="calc">
+      <div class="head">Function Editor</div>
+      <div class="screen">
+        <div class="err"></div>
+        <div class="in">sin(x)</div>
+      </div>
+      <div class="numbers" id="x">x</div>
+      <div class="numbers" id="sin(">sin</div>
+      <div class="numbers" id="cos(">cos</div>
+      <div class="numbers" id="+">+</div>
+      <div class="numbers" id="9">9</div>
+      <div class="numbers" id="8">8</div>
+      <div class="numbers" id="7">7</div>
+      <div class="numbers" id="-">-</div>
+      <div class="numbers" id="6">6</div>
+      <div class="numbers" id="5">5</div>
+      <div class="numbers" id="4">4</div>
+      <div class="numbers" id="/">/</div>
+      <div class="numbers" id="3">3</div>
+      <div class="numbers" id="2">2</div>
+      <div class="numbers" id="1">1</div>
+      <div class="numbers" id="*">*</div>
+      <div class="numbers" id="0">0</div>
+      <div class="numbers" id="^">^</div>
+      <div class="numbers" id="(">(</div>
+      <div class="numbers" id=")">)</div>
+      <div class="numbers clear" id="clear">Clear</div>
+      <div class="numbers makeGraph" id="graph">Make Graph</div>
+    </div>
+    <div class="fun">
+      <div class="inputBox">
+        <div class="currentFun"></div>
+      </div>
+      <button class="inputFunctions">
+        <img height="30px" src="./Assets/editAsset.png" alt="" />
+        Open Editor
+      </button>
+    </div>
+    <div class="preloader">
+      <img class="loading" src="./Assets/loadGif.gif" alt="" />
+      <div id="words">Loading...</div>
+    </div>
+    <script>
+      function showDisclaimer() {
+        const dis = document.querySelector(".disclaimer");
+        const cross = document.querySelector(".cross");
+        cross.style.zIndex = "5";
+        dis.style.zIndex = "5";
+        dis.classList.remove("hidden");
+        dis.classList.add("visible");
+        cross.classList.add("visible");
+        cross.classList.remove("hidden");
+        document.querySelector(".blur").style.display = "block";
+      }
+      function hideLimitation() {
+        const dis = document.querySelector(".disclaimer");
+        dis.classList.add("hidden");
+        dis.classList.remove("visible");
+        const cross = document.querySelector(".cross");
+        cross.classList.remove("visible");
+        cross.classList.add("hidden");
+        document.querySelector(".blur").style.display = "none";
+        setTimeout(() => {
+          cross.style.zIndex = "-5";
+          dis.style.zIndex = "-5";
+        }, 300);
+      }
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/dat-gui/0.7.9/dat.gui.min.js"></script>
+    <script src="./async.min.js"></script>
+    <script type="module" src="./script.js"></script>
+    <!-- <script>
+      function clicked(number) {
+        alert("You clicked: " + number);
+        // Add your desired functionality here
+      }
+    </script> -->
+  </body>
+</html>
