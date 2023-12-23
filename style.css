@@ -144,7 +144,7 @@ canvas {
 }
 .preloaderFade {
   opacity: 0;
-  transition: all cubic-bezier(0.075, 0.82, 0.165, 1) 2000ms;
+  transition: all cubic-bezier(0.075, 0.82, 0.165, 1) 1000ms;
 }
 .preloader div {
   color: white;
@@ -154,8 +154,7 @@ canvas {
 .loading {
   height: 150px;
 }
-.disclaimerBox {
-}
+
 .cross {
   /* display: none; */
   position: absolute;
@@ -171,6 +170,7 @@ li {
   top: 5px;
   left: 5px;
   position: absolute;
+  font-size: 0.7rem;
   background-color: rgb(52, 51, 51);
   color: white;
   border: solid white 1px;
@@ -179,6 +179,7 @@ li {
 }
 .disclaimer {
   /* display: none; */
+  padding: 10px;
   color: white;
   width: fit-content;
   margin: 5px 0;
@@ -186,7 +187,6 @@ li {
   z-index: -1;
   top: 50%;
   left: 50%;
-  min-width: 300px;
   max-width: 500px;
   text-align: justify;
   line-height: 1.5;
@@ -206,7 +206,8 @@ li {
   transition: all ease-in-out, 300ms;
 }
 .limitations {
-  font-size: 1.3rem;
+  font-size: 1.4rem;
+  font-weight: 900;
   text-align: center;
   margin: 1rem;
 }
@@ -219,5 +220,12 @@ strong {
   }
   .inputFunctions img {
     height: 1.2rem;
+  }
+  .disclaimer {
+    width: 300px;
+    font-size: 14px !important;
+    /* text-align: left; */
+    line-height: 1.1;
+    margin: 6px;
   }
 }

@@ -4,23 +4,6 @@ import createBuffer from "./helpers/createBuffer.js";
 import Arrow from "./materials/arrow.js";
 import ComplexFunction from "./maths/complexFunction.js";
 import integralCalculator from "./maths/integralCalculator.js";
-// import textAlchemy from "https://cdn.jsdelivr.net/npm/textalchemyjs@1.1.2/dist/textAlchemy.mjs";
-// const text = new textAlchemy.TextReveal(
-//   document.querySelector("#words"),
-//   [
-//     "Erasing Canvas",
-//     "Generating Vaetors",
-//     "Refining Curves",
-//     "Almost there",
-//     "Let's Go",
-//   ],
-//   {
-//     stepDelay: 20, //default: 20ms
-//     visibleTime: 700, // default: 500ms
-//     loop: false, // default:false
-//     stepCount: 1, //default: 2
-//   }
-// );
 var gl, canvas;
 var calcInput, err;
 var expression = "sin(x)";
@@ -84,7 +67,6 @@ function main(error, shaderText) {
     preloader.classList.remove("preloaderFade");
     preloader.style.display = "flex";
     document.querySelector("#words").innerText = "Generating Graph...";
-    // text.animate();
     await new Promise((resolve) => setTimeout(resolve, 0));
     assignFunction();
     generateVectors();
@@ -132,7 +114,6 @@ function main(error, shaderText) {
   const vectorFolder = colorFolder.addFolder("Vector");
   const drawingFolder = colorFolder.addFolder("Drawing");
 
-  // Add controls to each folder
   vectorFolder.add(color.vector, "r", 0, 255).name("Red").onChange(changeColor);
   vectorFolder
     .add(color.vector, "g", 0, 255)
@@ -238,7 +219,6 @@ function main(error, shaderText) {
           new Arrow(radius * Controllers.scale, integral.angle(), -i)
         );
       }
-      // console.log(arrows.length);
     }
 
     vectorsToBeDrawn =
@@ -306,15 +286,11 @@ function addListener(elem) {
 }
 function clicked(e) {
   expression += e.target.id;
-  console.log(expression);
   calcInput.innerText = expression;
   try {
     const parsedExpression = math.parse(expression);
-    console.log(parsedExpression.evaluate({ x: 0 }));
     const zeroeEvaluated = parsedExpression.evaluate({ x: 0 });
     const piEval = parsedExpression.evaluate({ x: Math.PI / 2 });
-    console.log(zeroeEvaluated);
-    console.log(piEval);
     if (
       zeroeEvaluated == Infinity ||
       zeroeEvaluated == -Infinity ||

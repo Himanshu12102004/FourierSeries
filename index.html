@@ -3,7 +3,8 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Grapher</title>
+    <link rel="icon" href="./assets/favicon.png" type="image/x-icon" />
     <script src="	https://cdn.jsdelivr.net/npm/mathjs@12.2.0/lib/browser/math.min.js"></script>
     <link rel="stylesheet" href="style.css" />
   </head>
@@ -22,7 +23,7 @@
       />
       <div class="disclaimer hidden">
         <div>
-          <div class="limitations">Limitations:</div>
+          <div class="limitations">Limitations</div>
           <p>
             This software is designed to approximate graphs of functions using
             the Complex Fourier series and it comes with certain inherent
@@ -36,22 +37,17 @@
             </li>
             <li>
               <strong>Function Support:</strong> The current version of the
-              software does not support the plotting of functions involving
-              <b>tan(x)</b>, <b>cot(x)</b>, <b>sec(x)</b>, and <b>cosec(x)</b>.
-              While ongoing development aims to broaden these capabilities,
-              users should be aware of this limitation.
+              software can only make graphs involving functions of <b>x</b>
+              <b>sin(x)</b> and <b>cos(x)</b> and does not support the plotting
+              of functions involving <b>tan(x)</b>, <b>cot(x)</b>,
+              <b>sec(x)</b>, and <b>cosec(x)</b>. While ongoing development aims
+              to broaden these capabilities, users should be aware of this
+              limitation.
             </li>
 
             <li>
               <strong>Graph Range:</strong> Graphs are generated within the
               range of -π to +π only.
-            </li>
-
-            <li>
-              <strong>Development Stage:</strong> The software is actively being
-              developed, and updates will be released periodically to address
-              limitations and enhance features. Users are encouraged to stay
-              informed about updates to benefit from the latest improvements.
             </li>
           </ol>
 
@@ -99,7 +95,7 @@
       </div>
       <button class="inputFunctions">
         <img height="30px" src="./Assets/editAsset.png" alt="" />
-        Open Editor
+        Edit Function
       </button>
     </div>
     <div class="preloader">
