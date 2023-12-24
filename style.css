@@ -156,7 +156,6 @@ canvas {
 }
 
 .cross {
-  /* display: none; */
   position: absolute;
   top: 5px;
   right: 5px;
@@ -165,6 +164,7 @@ canvas {
 li {
   margin-top: 0.5rem;
 }
+
 .disclaimerBtn {
   z-index: 2;
   top: 5px;
@@ -189,8 +189,8 @@ li {
   left: 50%;
   max-width: 500px;
   text-align: justify;
-  line-height: 1.5;
-  font-size: 1.5rem !important;
+  line-height: 1.1;
+  font-size: 1.1rem !important;
   transform: translate(-50%, -50%);
   height: 70vh;
   overflow: scroll;
@@ -212,7 +212,13 @@ li {
   margin: 1rem;
 }
 strong {
-  font-size: 1.1rem;
+  font-size: 1.3rem;
+}
+b {
+  font-size: 1.2rem;
+}
+a {
+  color: white;
 }
 @media (max-width: 499px) {
   .inputFunctions {
