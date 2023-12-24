@@ -6,7 +6,7 @@ import ComplexFunction from "./maths/complexFunction.js";
 import integralCalculator from "./maths/integralCalculator.js";
 var gl, canvas;
 var calcInput, err;
-var expression = "x*sin(7x)";
+var expression = "sin(x)";
 var isValid = true;
 var makeGraphButton = document.querySelector("#graph");
 var calc = document.querySelector(".calc");
