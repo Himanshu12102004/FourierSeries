@@ -68,7 +68,7 @@ canvas {
 }
 .err {
   color: red;
-  font-size: 1.1rem;
+  font-size: 1rem;
 }
 .in {
   font-size: 1.4rem;
@@ -84,7 +84,8 @@ canvas {
   background-color: rgba(50, 50, 50, 0.5);
   backdrop-filter: blur(4px);
 }
-.numbers {
+.numbers,
+.makeGraph {
   cursor: pointer;
   display: flex;
   padding: 0.2rem;
@@ -95,6 +96,21 @@ canvas {
   background-color: rgb(77, 80, 80);
   font-size: 2rem;
   color: white;
+  transition: all ease 500ms;
+}
+.numbers:hover {
+  transition: all ease 500ms;
+  background-color: rgb(48, 54, 54);
+}
+#clear:hover {
+  transition: all ease 500ms;
+
+  background-color: rgb(16, 16, 57);
+}
+#x:hover {
+  transition: all ease 500ms;
+
+  background-color: rgb(35, 35, 59);
 }
 .makeGraph {
   cursor: pointer;
@@ -114,6 +130,13 @@ canvas {
 .invalid {
   color: rgb(130, 130, 130);
 }
+.makeGraph:hover {
+  background-color: rgb(48, 54, 54);
+}
+.invalid:hover {
+  background-color: rgb(77, 80, 80);
+}
+
 #x {
   font-family: cursive !important;
 }
@@ -165,9 +188,12 @@ li {
   margin-top: 0.5rem;
 }
 #x {
+  transition: all ease 500ms;
+
   background-color: rgb(37, 37, 66);
 }
 #clear {
+  transition: all ease 500ms;
   background-color: rgb(37, 37, 66);
 }
 
@@ -193,7 +219,7 @@ li {
   z-index: -1;
   top: 50%;
   left: 50%;
-  max-width: 500px;
+  max-width: 700px;
   text-align: justify;
   line-height: 1.1;
   font-size: 1.1rem !important;
@@ -225,6 +251,9 @@ b {
 }
 a {
   color: white;
+}
+#words {
+  text-align: center;
 }
 @media (max-width: 499px) {
   .inputFunctions {

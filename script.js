@@ -6,7 +6,7 @@ import ComplexFunction from "./maths/complexFunction.js";
 import integralCalculator from "./maths/integralCalculator.js";
 var gl, canvas;
 var calcInput, err;
-var expression = "x*cos(5x)";
+var expression = "x*sin(7x)";
 var isValid = true;
 var makeGraphButton = document.querySelector("#graph");
 var calc = document.querySelector(".calc");
@@ -29,7 +29,7 @@ function loadShaderAsync(shaderURL, callback) {
 function main(error, shaderText) {
   const Controllers = {
     scale: 300,
-    speed: 0.005,
+    speed: 5,
     noOfVectors: 700,
     smoothness: 500,
     ErasePrevious: true,
@@ -66,7 +66,7 @@ function main(error, shaderText) {
     head.innerText = "Please Wait!";
     preloader.classList.remove("preloaderFade");
     preloader.style.display = "flex";
-    document.querySelector("#words").innerText = "Generating Graph...";
+    document.querySelector("#words").innerHTML = "Generating Graph...";
     await new Promise((resolve) => setTimeout(resolve, 0));
     assignFunction();
     generateVectors();
@@ -90,7 +90,7 @@ function main(error, shaderText) {
     });
 
   controllersFolder
-    .add(Controllers, "speed", 0.0000001, 1, 0.000001)
+    .add(Controllers, "speed", 0, 100, 0.001)
     .name("Speed")
     .onChange(() => {
       if (Controllers.ErasePrevious) {
@@ -261,12 +261,17 @@ function main(error, shaderText) {
     dBuffer = createBuffer(drawBuffer, gl);
   }
   let count = 0;
+  let lastFrameTime = 0;
   function loop() {
     animationId = requestAnimationFrame(loop);
+    const currentTime = performance.now();
+    let deltaTime = currentTime - lastFrameTime;
+    lastFrameTime = currentTime;
+    if (deltaTime >= 100) deltaTime = 0;
     gl.clearColor(0, 0, 0, 1);
     gl.clear(gl.COLOR_BUFFER_BIT);
     updateBuffer(count);
-    count += Controllers.speed;
+    count += Controllers.speed * deltaTime * 0.0001;
     gl.uniform1i(drawLocation, 1);
     gl.bindBuffer(gl.ARRAY_BUFFER, dBuffer);
     gl.vertexAttribPointer(vertexLocation, 2, gl.FLOAT, true, 0, 0);
