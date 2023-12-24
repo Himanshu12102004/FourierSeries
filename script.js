@@ -6,7 +6,7 @@ import ComplexFunction from "./maths/complexFunction.js";
 import integralCalculator from "./maths/integralCalculator.js";
 var gl, canvas;
 var calcInput, err;
-var expression = "sin(x)";
+var expression = "x*cos(5x)";
 var isValid = true;
 var makeGraphButton = document.querySelector("#graph");
 var calc = document.querySelector(".calc");
@@ -75,7 +75,7 @@ function main(error, shaderText) {
     preloader.classList.add("preloaderFade");
     setTimeout(() => {
       preloader.style.display = "none";
-    }, 2000);
+    }, 500);
     loop();
   });
   let prevScale = Controllers.scale;
@@ -231,7 +231,7 @@ function main(error, shaderText) {
   preloader.classList.add("preloaderFade");
   setTimeout(() => {
     preloader.style.display = "none";
-  }, 2000);
+  }, 500);
   const viewportDimensionsLocation = gl.getUniformLocation(
     program,
     "viewportDimensions"

@@ -164,6 +164,12 @@ canvas {
 li {
   margin-top: 0.5rem;
 }
+#x {
+  background-color: rgb(37, 37, 66);
+}
+#clear {
+  background-color: rgb(37, 37, 66);
+}
 
 .disclaimerBtn {
   z-index: 2;
