@@ -262,6 +262,9 @@ a {
   .inputFunctions img {
     height: 1.2rem;
   }
+  strong {
+    font-size: 1.2rem;
+  }
   .disclaimer {
     width: 300px;
     font-size: 14px !important;

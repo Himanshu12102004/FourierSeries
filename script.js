@@ -6,7 +6,7 @@ import ComplexFunction from "./maths/complexFunction.js";
 import integralCalculator from "./maths/integralCalculator.js";
 var gl, canvas;
 var calcInput, err;
-var expression = "sin(x)";
+var expression = "sin(x)*2";
 var isValid = true;
 var makeGraphButton = document.querySelector("#graph");
 var calc = document.querySelector(".calc");
@@ -55,7 +55,7 @@ function main(error, shaderText) {
   calcInput.innerText = expression;
   let fun1, fun3;
   if (innerWidth < 500) {
-    Controllers.scale = 150;
+    Controllers.scale = 100;
     // maxArrowPairs = 300;
     // Controllers.noOfVectors = 500;
   }
@@ -312,6 +312,7 @@ function clicked(e) {
     }
   } catch (e) {
     err.innerText = "Invalid Expression";
+    isValid = false;
     makeGraphButton.classList.add("invalid");
   }
 }
